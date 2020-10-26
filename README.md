@@ -11,8 +11,12 @@ A svelte component for when you want a permanent, on-screen keyboard.
 ```svelte
 <script>
 	import Keyboard from "svelte-keyboard";
+	function onKeydown(event) {
+		console.log(event.detail);
+	}
 </script>
-<Keyboard />
+
+<Keyboard on:keydown="{onKeydown}" />
 ```
 
 Or pass custom keys:
@@ -28,6 +32,11 @@ Or pass custom keys:
 		value: "W"
 	},
 	...]
+
+	function onKeydown(event) {
+		console.log(event.detail);
+	}
 </script>
-<Keyboard {data} />
+
+<Keyboard data="{data}" on:keydown="{onKeydown}" />
 ```
