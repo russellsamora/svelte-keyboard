@@ -1,0 +1,37 @@
+{
+  "name": "svelte-keyboard",
+  "version": "0.0.1",
+  "description": "Keyboard component for Svelte",
+  "svelte": "src/Keyboard.svelte",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "start": "sirv public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/russellgoldenberg/svelte-keyboard.git"
+  },
+  "keywords": [
+    "svelte",
+    "keyboard"
+  ],
+  "author": "russell goldenberg",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/russellgoldenberg/svelte-keyboard/issues"
+  },
+  "homepage": "https://github.com/russellgoldenberg/svelte-keyboard#readme",
+  "peerDependencies": {
+    "svelte": "^3.29.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^15.1.0",
+    "@rollup/plugin-node-resolve": "^9.0.0",
+    "rollup": "^2.32.1",
+    "rollup-plugin-livereload": "^2.0.0",
+    "rollup-plugin-svelte": "^6.1.0",
+    "sirv-cli": "^1.0.8",
+    "svelte": "^3.29.4"
+  }
+}
