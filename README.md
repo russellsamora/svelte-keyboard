@@ -9,6 +9,9 @@ A svelte component for when you want a permanent, on-screen keyboard.
 ## Usage
 
 ```svelte
+<script>
+	import Keyboard from "svelte-keyboard";
+</script>
 <Keyboard />
 ```
 
@@ -16,6 +19,7 @@ Or pass custom keys:
 
 ```svelte
 <script>
+	import Keyboard from "svelte-keyboard";
 	const data = [{
 		row: 0,
 		value: "Q"
