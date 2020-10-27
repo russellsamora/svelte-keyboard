@@ -40,3 +40,10 @@ Or pass custom keys:
 
 <Keyboard data="{data}" on:keydown="{onKeydown}" />
 ```
+
+## Development
+
+```
+cd example;
+npm run dev;
+```
