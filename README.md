@@ -1,6 +1,6 @@
 # svelte-keyboard
 
-A svelte component for when you want a permanent, on-screen keyboard. [Example](https://russellgoldenberg.github.io/svelte-keyboard/example).
+A svelte component for when you want a permanent, on-screen keyboard. [Example](https://russellgoldenberg.github.io/svelte-keyboard/example/public).
 
 ## Installation
 
