@@ -1,3 +1,4 @@
-.row.svelte-1bx8glz{display:flex;justify-content:center}button.svelte-1bx8glz{font-size:1em;text-align:center;padding:0.5em;margin:0.1em;border-radius:2px;background-color:#efefef;border:none;outline:none;cursor:pointer;line-height:1;vertical-align:baseline}button.svelte-1bx8glz:active{transform:scale(2);background-color:#cdcdcd}button.single.svelte-1bx8glz{padding:0.5em 0}
+h1.svelte-1dmxbc2,p.svelte-1dmxbc2{text-align:center}div.svelte-1dmxbc2{max-width:480px;margin:0 auto}
+.row.svelte-zc71md{display:flex;justify-content:center}button.svelte-zc71md{font-family:sans-serif;font-size:1em;text-align:center;padding:0.5em;margin:0.1em;border-radius:2px;background-color:#efefef;border:none;cursor:pointer;line-height:1;vertical-align:baseline}button.depth.svelte-zc71md{box-shadow:1px 1px 1px 1px rgba(0, 0, 0, 0.25);margin:0.2em}button.outline.svelte-zc71md{border:1px solid rgba(0, 0, 0, 0.25)}button.svelte-zc71md:active{transform:scale(2);background-color:#cdcdcd}button.single.svelte-zc71md{padding:0.5em 0}.page.svelte-zc71md{display:none}.page.visible.svelte-zc71md{display:block}
 
 /*# sourceMappingURL=bundle.css.map */

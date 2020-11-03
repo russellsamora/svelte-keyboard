@@ -9,7 +9,7 @@
 <h1>Svelte Keyboard</h1>
 <div>
   <p>Key pressed: {key}</p>
-  <Keyboard on:keydown="{onKeydown}" />
+  <Keyboard style="outline" on:keydown="{onKeydown}" />
 </div>
 
 <style>
