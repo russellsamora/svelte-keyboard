@@ -19,7 +19,7 @@ A svelte component for when you want a permanent, on-screen keyboard. [Example](
 <Keyboard on:keydown="{onKeydown}" />
 ```
 
-Or pass custom keys:
+### Custom Keys
 
 ```svelte
 <script>
@@ -40,6 +40,21 @@ Or pass custom keys:
 
 <Keyboard data="{data}" on:keydown="{onKeydown}" />
 ```
+
+If you want value to be different than the display key, pass a `display` property. If you want keys to be laid out on the second page, include `page: 1` (defaults to `page: 0`) .
+
+### Style
+
+```svelte
+	<Keyboard style="depth" />
+	<Keyboard style="outline" />
+```
+
+### Special values
+
+- `delete` displays a delete svg icon
+- `page1` displays "123" and will switch to the second page, no event fires
+- `page0` displays "abc" and will switch to the first page, no event fires
 
 ## Development
 
