@@ -1,6 +1,6 @@
 {
   "name": "svelte-keyboard",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Keyboard component for Svelte",
   "svelte": "src/Keyboard.svelte",
   "repository": {
