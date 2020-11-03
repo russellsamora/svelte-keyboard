@@ -46,8 +46,8 @@ If you want value to be different than the display key, pass a `display` propert
 ### Style
 
 ```svelte
-	<Keyboard style="depth" />
-	<Keyboard style="outline" />
+<Keyboard style="depth" />
+<Keyboard style="outline" />
 ```
 
 ### Special values
