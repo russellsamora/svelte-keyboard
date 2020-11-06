@@ -43,6 +43,11 @@ A svelte component for when you want a permanent, on-screen keyboard. [Example](
 
 If you want value to be different than the display key, pass a `display` property. If you want keys to be laid out on the second page, include `page: 1` (defaults to `page: 0`) .
 
+### Layouts
+
+- `standard` - (_default value_) two pages with all basic keys
+- `crossword` - one page, just caps letters and Backspace
+
 ### Style
 
 ```svelte
@@ -52,9 +57,12 @@ If you want value to be different than the display key, pass a `display` propert
 
 ### Special values
 
-- `delete` displays a delete svg icon
-- `page1` displays "123" and will switch to the second page, no event fires
-- `page0` displays "abc" and will switch to the first page, no event fires
+- `Backspace` displays a backspace svg icon
+- `Enter` displays an enter svg icon
+- `Space` displays a spacebar
+- `Shift` displays "ABC" or "abc" to toggle case, no event fires
+- `Page1` displays "123" and will switch to the second page, no event fires
+- `Page0` displays "abc" and will switch to the first page, no event fires
 
 ## Development
 
