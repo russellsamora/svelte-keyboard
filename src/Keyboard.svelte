@@ -1,13 +1,46 @@
 <script>
   import { createEventDispatcher } from "svelte";
-  import keyboardData from "./data.js";
+  import standard from "./layouts/standard.js";
+  import crossword from "./layouts/crossword.js";
+
+  import backspaceSVG from "./svg/backspace.js";
+  import enterSVG from "./svg/enter.js";
+
   const dispatch = createEventDispatcher();
 
-  export let data = keyboardData;
+  export let custom;
   export let style = "";
+  export let layout = "standard";
+
   let page = 0;
+  let shifted = false;
+
+  const alphabet = "abcdefghijklmnopqrstuvwxyz";
+  const layouts = { standard, crossword };
+
+  const swaps = {
+    Page0: "abc",
+    Page1: "?123",
+    Space: " ",
+    Shift: "abc",
+    Enter: enterSVG,
+    Backspace: backspaceSVG,
+  };
 
   const unique = (arr) => [...new Set(arr)];
+
+  $: rawData = custom || layouts[layout];
+  $: data = rawData.map((d) => {
+    let display = d.display;
+    if (swaps[d.value]) display = swaps[d.value];
+    if (!display) display = shifted ? d.value.toUpperCase() : d.value;
+    if (d.value === "Shift")
+      display = shifted ? swaps[d.value] : swaps[d.value].toUpperCase();
+    return {
+      ...d,
+      display,
+    };
+  });
 
   $: page0 = data.filter((d) => !d.page);
   $: page1 = data.filter((d) => d.page);
@@ -18,13 +51,6 @@
   $: rows1 = unique(page1.map((d) => d.row));
   $: rows1, rows1.sort((a, b) => a - b);
 
-  const swaps = {
-    page0: "abc",
-    page1: "123",
-    delete:
-      '<svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-delete"><path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"></path><line x1="18" y1="9" x2="12" y2="15"></line><line x1="12" y1="9" x2="18" y2="15"></line></svg>',
-  };
-
   $: rowData0 = rows0.map((r) => page0.filter((k) => k.row === r));
   $: rowData1 = rows0.map((r) => page1.filter((k) => k.row === r));
   $: rowData = [rowData0, rowData1];
@@ -33,12 +59,20 @@
   $: maxInRow = Math.max(maxInRow0, maxInRow1);
   $: percentWidth = `${(1 / maxInRow) * 100}%`;
 
-  function onKey(value) {
-    if (value.includes("page")) {
+  function onKey(value, event) {
+    event.preventDefault();
+    if (value.includes("Page")) {
       page = +value.substr(-1);
-      return false;
+    } else if (value === "Shift") {
+      shifted = !shifted;
+    } else {
+      let output = value;
+      if (shifted && alphabet.includes(value)) output = value.toUpperCase();
+      if (value === "Space") output = " ";
+      dispatch("keydown", output);
     }
-    dispatch("keydown", value);
+    event.stopPropagation();
+    return false;
   }
 </script>
 
@@ -49,16 +83,14 @@
         <div class="row row--{i}">
           {#each keys as { value, display }}
             <button
-              style="width: {value.length === 1 ? percentWidth : 'auto'};"
-              class="{style}"
+              style="--w: {percentWidth};"
+              class="{style} key--{value}"
               class:single="{value.length === 1}"
-              on:touchstart="{() => onKey(value)}"
-              on:click="{() => onKey(value)}">
-              {#if display}
-                {display}
-              {:else if swaps[value]}
-                {@html swaps[value]}
-              {:else}{value}{/if}
+              on:touchstart="{(e) => onKey(value, e)}"
+              on:mousedown="{(e) => onKey(value, e)}">
+              {#if display.includes('<svg')}
+                {@html display}
+              {:else}{display}{/if}
             </button>
           {/each}
         </div>
@@ -74,6 +106,7 @@
   }
 
   button {
+    display: inline-block;
     font-family: sans-serif;
     font-size: 1em;
     text-align: center;
@@ -85,6 +118,7 @@
     cursor: pointer;
     line-height: 1;
     vertical-align: baseline;
+    width: var(--w);
   }
 
   button.depth {
@@ -111,5 +145,18 @@
 
   .page.visible {
     display: block;
+  }
+
+  button.key--Space {
+    width: 20%;
+  }
+
+  button.key--Page0,
+  button.key--Page1,
+  button.key--Shift,
+  button.key--Backspace,
+  button.key--Enter {
+    width: auto;
+    min-width: var(--w);
   }
 </style>
