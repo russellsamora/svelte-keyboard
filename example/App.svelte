@@ -8,6 +8,11 @@
 </script>
 
 <h1>Svelte Keyboard</h1>
+<p>
+  A keyboard component for Svelte. Read the docs on
+  <a
+    href="https://github.com/russellgoldenberg/svelte-keyboard#svelte-keyboard">github.</a>
+</p>
 <div>
   <h3>Default settings</h3>
   <p>Key pressed: "{key}"</p>
