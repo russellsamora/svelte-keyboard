@@ -38,7 +38,7 @@ A svelte component for when you want a permanent, on-screen keyboard. [Example](
 	}
 </script>
 
-<Keyboard data="{data}" on:keydown="{onKeydown}" />
+<Keyboard custom="{data}" on:keydown="{onKeydown}" />
 ```
 
 If you want value to be different than the display key, pass a `display` property. If you want keys to be laid out on the second page, include `page: 1` (defaults to `page: 0`) .
