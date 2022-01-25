@@ -94,3 +94,5 @@ Use style props on the component (defaults):
 cd example;
 npm run dev;
 ```
+
+Note: Must manually change export package "."
