@@ -1,22 +1,24 @@
 <script>
   import { createEventDispatcher } from "svelte";
-  import standard from "./layouts/standard.js";
-  import crossword from "./layouts/crossword.js";
+  import standard from "$lib/layouts/standard.js";
+  import crossword from "$lib/layouts/crossword.js";
+  import wordle from "$lib/layouts/wordle.js";
 
-  import backspaceSVG from "./svg/backspace.js";
-  import enterSVG from "./svg/enter.js";
+  import backspaceSVG from "$lib/svg/backspace.js";
+  import enterSVG from "$lib/svg/enter.js";
 
   const dispatch = createEventDispatcher();
 
   export let custom;
   export let style = "";
   export let layout = "standard";
+  export let noSwap = [];
 
   let page = 0;
   let shifted = false;
 
   const alphabet = "abcdefghijklmnopqrstuvwxyz";
-  const layouts = { standard, crossword };
+  const layouts = { standard, crossword, wordle };
 
   const swaps = {
     Page0: "abc",
@@ -29,10 +31,11 @@
 
   const unique = (arr) => [...new Set(arr)];
 
-  $: rawData = custom || layouts[layout];
+  $: rawData = custom || layouts[layout] || standard;
   $: data = rawData.map((d) => {
     let display = d.display;
-    if (swaps[d.value]) display = swaps[d.value];
+    if (swaps[d.value] && !noSwap.includes(d.value) && !d.noSwap)
+      display = swaps[d.value];
     if (!display) display = shifted ? d.value.toUpperCase() : d.value;
     if (d.value === "Shift")
       display = shifted ? swaps[d.value] : swaps[d.value].toUpperCase();
@@ -54,10 +57,6 @@
   $: rowData0 = rows0.map((r) => page0.filter((k) => k.row === r));
   $: rowData1 = rows0.map((r) => page1.filter((k) => k.row === r));
   $: rowData = [rowData0, rowData1];
-  $: maxInRow0 = Math.max(...rowData0.map((r) => r.length));
-  $: maxInRow1 = Math.max(...rowData1.map((r) => r.length));
-  $: maxInRow = Math.max(maxInRow0, maxInRow1);
-  $: percentWidth = `${(1 / maxInRow) * 100}%`;
 
   function onKey(value, event) {
     event.preventDefault();
@@ -68,7 +67,6 @@
     } else {
       let output = value;
       if (shifted && alphabet.includes(value)) output = value.toUpperCase();
-      if (value === "Space") output = " ";
       dispatch("keydown", output);
     }
     event.stopPropagation();
@@ -83,7 +81,6 @@
         <div class="row row--{i}">
           {#each keys as { value, display }}
             <button
-              style="--w: {percentWidth};"
               class="{style} key--{value}"
               class:single="{value.length === 1}"
               on:touchstart="{(e) => onKey(value, e)}"
@@ -104,40 +101,68 @@
   .row {
     display: flex;
     justify-content: center;
+    touch-action: manipulation;
   }
 
   button {
     display: inline-block;
-    font-family: sans-serif;
-    font-size: 1em;
     text-align: center;
-    padding: 0.5em;
-    margin: 0.1em;
-    border-radius: 2px;
-    background-color: #efefef;
-    border: none;
+    vertical-align: baseline;
     cursor: pointer;
     line-height: 1;
-    vertical-align: baseline;
-    width: var(--w);
+    flex: 1;
+    transform-origin: 50% 50%;
+    height: var(--height, 3.5rem);
+    background: var(--background, #efefef);
+    color: var(--color, currentColor);
+    border: var(--border, none);
+    border-radius: var(--border-radius, 2px);
+    box-shadow: var(--box-shadow, none);
+    font-family: var(--font-family, sans-serif);
+    font-size: var(--font-size, 1rem);
+    margin: var(--margin, 0.125rem);
+    text-transform: var(--text-transform, none);
+  }
+
+  button.single {
+    min-width: var(--min-width, 2rem);
   }
 
   button.depth {
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.25);
-    margin: 0.2em;
+    margin: 0.2rem;
   }
 
   button.outline {
     border: 1px solid rgba(0, 0, 0, 0.25);
   }
 
-  button:active {
-    transform: scale(2);
-    background-color: #cdcdcd;
+  button:first-of-type {
+    transform-origin: 0 50%;
   }
 
-  button.single {
-    padding: 0.5em 0;
+  button:last-of-type {
+    transform-origin: 100% 50%;
+  }
+
+  .row:last-of-type button {
+    transform-origin: 50% 100%;
+  }
+
+  .row:last-of-type button:first-of-type {
+    transform-origin: 0% 100%;
+  }
+
+  .row:last-of-type button:last-of-type {
+    transform-origin: 100% 100%;
+  }
+
+  button:active {
+    background: var(--active-background, #cdcdcd);
+    border: var(--active-border, none);
+    box-shadow: var(--active-box-shadow, none);
+    color: var(--active-color, currentColor);
+    transform: var(--active-transform, scale(2));
   }
 
   .page {
@@ -149,7 +174,8 @@
   }
 
   button.key--Space {
-    width: 20%;
+    width: var(--space-width, 20%);
+    flex: var(--space-flex, 3);
   }
 
   button.key--Page0,
@@ -157,7 +183,6 @@
   button.key--Shift,
   button.key--Backspace,
   button.key--Enter {
-    width: auto;
-    min-width: var(--w);
+    flex: var(--special-flex, 1.5);
   }
 </style>

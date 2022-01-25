@@ -1,0 +1,38 @@
+{
+  "name": "svelte-keyboard",
+  "version": "0.3.0",
+  "description": "Keyboard component for Svelte",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/russellgoldenberg/svelte-keyboard.git"
+  },
+  "keywords": [
+    "svelte",
+    "keyboard"
+  ],
+  "author": "russell goldenberg",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/russellgoldenberg/svelte-keyboard/issues"
+  },
+  "homepage": "https://github.com/russellgoldenberg/svelte-keyboard#readme",
+  "devDependencies": {
+    "@sveltejs/adapter-auto": "next",
+    "@sveltejs/kit": "next",
+    "prettier": "^2.4.1",
+    "prettier-plugin-svelte": "^2.4.0",
+    "svelte": "^3.46.2",
+    "svelte2tsx": "^0.4.14",
+    "typescript": "^4.5.5"
+  },
+  "type": "module",
+  "exports": {
+    "./package.json": "./package.json",
+    "./Keyboard.svelte": "./Keyboard.svelte",
+    "./layouts/crossword": "./layouts/crossword.js",
+    "./layouts/standard": "./layouts/standard.js",
+    "./layouts/wordle": "./layouts/wordle.js",
+    "./svg/backspace": "./svg/backspace.js",
+    "./svg/enter": "./svg/enter.js"
+  }
+}

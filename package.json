@@ -2,7 +2,6 @@
 	"name": "svelte-keyboard",
 	"version": "0.2.1",
 	"description": "Keyboard component for Svelte",
-	"svelte": "src/Keyboard.svelte",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/russellgoldenberg/svelte-keyboard.git"
@@ -17,7 +16,20 @@
 		"url": "https://github.com/russellgoldenberg/svelte-keyboard/issues"
 	},
 	"homepage": "https://github.com/russellgoldenberg/svelte-keyboard#readme",
-	"peerDependencies": {
-		"svelte": "^3.29.0"
-	}
+	"scripts": {
+		"dev": "svelte-kit dev",
+		"build": "svelte-kit build",
+		"package": "svelte-kit package",
+		"preview": "svelte-kit preview"
+	},
+	"devDependencies": {
+		"@sveltejs/adapter-auto": "next",
+		"@sveltejs/kit": "next",
+		"prettier": "^2.4.1",
+		"prettier-plugin-svelte": "^2.4.0",
+		"svelte": "^3.46.2",
+		"svelte2tsx": "^0.4.14",
+		"typescript": "^4.5.5"
+	},
+	"type": "module"
 }
