@@ -19,13 +19,13 @@ export default [{
 }, {
 	"row": 0,
 	"value": "U"
-},  {
+}, {
 	"row": 0,
 	"value": "I"
-},  {
+}, {
 	"row": 0,
 	"value": "O"
-},  {
+}, {
 	"row": 0,
 	"value": "P"
 }, {
@@ -55,6 +55,9 @@ export default [{
 }, {
 	"row": 1,
 	"value": "L"
+}, {
+	"row": 2,
+	"value": "Enter"
 }, {
 	"row": 2,
 	"value": "Z"

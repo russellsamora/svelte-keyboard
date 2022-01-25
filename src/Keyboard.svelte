@@ -87,8 +87,9 @@
               class="{style} key--{value}"
               class:single="{value.length === 1}"
               on:touchstart="{(e) => onKey(value, e)}"
-              on:mousedown="{(e) => onKey(value, e)}">
-              {#if display.includes('<svg')}
+              on:mousedown="{(e) => onKey(value, e)}"
+            >
+              {#if display.includes("<svg")}
                 {@html display}
               {:else}{display}{/if}
             </button>
