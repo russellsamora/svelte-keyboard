@@ -1,9 +1,13 @@
 <script>
   import { createEventDispatcher } from "svelte";
-  import layouts from "$lib/layouts.js";
+
+  import standard from "$lib/layouts/standard.js";
+  import crossword from "$lib/layouts/crossword.js";
+  import wordle from "$lib/layouts/wordle.js";
   import backspaceSVG from "$lib/svg/backspace.js";
   import enterSVG from "$lib/svg/enter.js";
 
+  const layouts = { standard, crossword, wordle };
   const dispatch = createEventDispatcher();
 
   export let custom;
