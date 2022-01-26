@@ -23,7 +23,7 @@
 		"preview": "svelte-kit preview"
 	},
 	"devDependencies": {
-		"@sveltejs/adapter-auto": "next",
+		"@sveltejs/adapter-static": "next",
 		"@sveltejs/kit": "next",
 		"prettier": "^2.4.1",
 		"prettier-plugin-svelte": "^2.4.0",
