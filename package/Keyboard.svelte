@@ -1,9 +1,6 @@
 <script>
   import { createEventDispatcher } from "svelte";
-  import standard from "./layouts/standard.js";
-  import crossword from "./layouts/crossword.js";
-  import wordle from "./layouts/wordle.js";
-
+  import layouts from "./layouts.js";
   import backspaceSVG from "./svg/backspace.js";
   import enterSVG from "./svg/enter.js";
 
@@ -17,7 +14,6 @@
   let shifted = false;
 
   const alphabet = "abcdefghijklmnopqrstuvwxyz";
-  const layouts = { standard, crossword, wordle };
 
   const swaps = {
     Page0: "abc",
@@ -73,7 +69,7 @@
   }
 </script>
 
-<div class="keyboard">
+<div class="svelte-keyboard">
   {#each rowData as row, i}
     <div class="page" class:visible="{i === page}">
       {#each row as keys}
@@ -109,13 +105,13 @@
     vertical-align: baseline;
     cursor: pointer;
     line-height: 1;
-    flex: 1;
     transform-origin: 50% 50%;
     background: var(--background, #eee);
     color: var(--color, #111);
     border: var(--border, none);
     border-radius: var(--border-radius, 2px);
     box-shadow: var(--box-shadow, none);
+    flex: var(--flex, 1);
     font-family: var(--font-family, sans-serif);
     font-size: var(--font-size, 1rem);
     font-weight: var(--font-size, normal);

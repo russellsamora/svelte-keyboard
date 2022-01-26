@@ -52,6 +52,7 @@ Use style props on the component (showing defaults):
 	--border="none"
 	--border-radius="2px"
 	--box-shadow="none"
+	--flex="1"
 	--font-family="sans-serif"
 	--font-size="1rem"
 	--font-weight="normal"
@@ -67,6 +68,8 @@ Use style props on the component (showing defaults):
 	--active-transform="scale(2)"
 >
 ```
+
+For any other properties, use global CSS on the selector `.svelte-keyboard button.key`.
 
 ### Special values
 

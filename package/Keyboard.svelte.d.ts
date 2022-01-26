@@ -1,7 +1,7 @@
-/** @typedef {typeof __propDef.props}  IndexProps */
-/** @typedef {typeof __propDef.events}  IndexEvents */
-/** @typedef {typeof __propDef.slots}  IndexSlots */
-export default class Index extends SvelteComponentTyped<{
+/** @typedef {typeof __propDef.props}  KeyboardProps */
+/** @typedef {typeof __propDef.events}  KeyboardEvents */
+/** @typedef {typeof __propDef.slots}  KeyboardSlots */
+export default class Keyboard extends SvelteComponentTyped<{
     custom: any;
     layout?: string;
     noSwap?: any[];
@@ -11,9 +11,9 @@ export default class Index extends SvelteComponentTyped<{
     [evt: string]: CustomEvent<any>;
 }, {}> {
 }
-export type IndexProps = typeof __propDef.props;
-export type IndexEvents = typeof __propDef.events;
-export type IndexSlots = typeof __propDef.slots;
+export type KeyboardProps = typeof __propDef.props;
+export type KeyboardEvents = typeof __propDef.events;
+export type KeyboardSlots = typeof __propDef.slots;
 import { SvelteComponentTyped } from "svelte";
 declare const __propDef: {
     props: {
