@@ -10,10 +10,11 @@ A svelte component for when you want a permanent, on-screen keyboard. [Example](
 
 ```svelte
 <script>
-	import Keyboard from "svelte-keyboard";
-	function onKeydown(event) {
-		console.log(event.detail);
-	}
+  import Keyboard from "svelte-keyboard";
+
+	const onKeydown = (event) => {
+    console.log(event.detail);
+  }
 </script>
 
 <Keyboard on:keydown="{onKeydown}" />
@@ -23,41 +24,26 @@ A svelte component for when you want a permanent, on-screen keyboard. [Example](
 
 ```svelte
 <script>
-	import Keyboard from "svelte-keyboard";
-	const data = [{
-		row: 0,
-		value: "Q"
-	}, {
-		row: 0,
-		value: "W"
-	},
-	...]
-
-	function onKeydown(event) {
-		console.log(event.detail);
-	}
+  const keys = [{ row: 0, value: "Q"}, ...];
 </script>
 
-<Keyboard custom="{data}" on:keydown="{onKeydown}" />
+<Keyboard custom="{keys}" />
 ```
 
 If you want value to be different than the display key, pass a `display` property. If you want keys to be laid out on the second page, include `page: 1` (defaults to `page: 0`) .
 
 ### Layouts
 
-- `standard` - (_default value_) two pages with all basic keys
-- `crossword` - one page, just caps letters and Backspace
-- `wordle` - one page, just caps letters, Backspace, and Enter
-
-### Preset styles
+- `standard` - (_default_) two pages with all basic keys
+- `crossword` - one page, just capitalized letters and Backspace
+- `wordle` - one page, just capitalized letters, Backspace, and Enter
 
 ```svelte
-<Keyboard style="depth" />
-<Keyboard style="outline" />
+<Keyboard layout="wordle" />
 ```
 
-#### Custom styles
-Use style props on the component (defaults):
+### Custom Styles
+Use style props on the component (showing defaults):
 ```svelte
 <Keyboard
 	--height="3.5rem"

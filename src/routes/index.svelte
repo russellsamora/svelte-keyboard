@@ -28,27 +28,55 @@
 </div>
 
 <div class="info">
-  <h3>Preset Style (depth)</h3>
+  <h3>Custom Layout</h3>
   <p>key pressed: <strong>{keys[2] || ""}</strong></p>
 </div>
 <div>
-  <Keyboard style="depth" on:keydown="{({ detail }) => (keys[2] = detail)}" />
+  <Keyboard
+    custom="{[
+      { row: 0, value: 's' },
+      { row: 0, value: 'v' },
+      { row: 0, value: 'e' },
+      { row: 0, value: 'l' },
+      { row: 0, value: 't' },
+      { row: 0, value: 'e' },
+    ]}"
+    on:keydown="{({ detail }) => (keys[2] = detail)}"
+  />
 </div>
 
 <div class="info">
-  <h3>Custom Style</h3>
+  <h3>Custom Style - A</h3>
   <p>key pressed: <strong>{keys[3] || ""}</strong></p>
 </div>
 <div>
   <Keyboard
     --background="black"
     --color="white"
-    --border-radius="5px"
+    --border-radius="16px"
+    --font-family="monospace"
+    --font-weight="bold"
     --active-background="lightgreen"
     --active-color="black"
-    --active-transform="scale(1)"
-    --active-box-shadow="0 0 0 3px purple"
     on:keydown="{({ detail }) => (keys[3] = detail)}"
+  />
+</div>
+
+<div class="info">
+  <h3>Custom Style - B</h3>
+  <p>key pressed: <strong>{keys[4] || ""}</strong></p>
+</div>
+<div>
+  <Keyboard
+    --background="pink"
+    --color="darkred"
+    --border-radius="4px"
+    --box-shadow="2px 2px 2px 0 red"
+    --active-background="pink"
+    --active-color="darkred"
+    --active-transform="translate(2px, 2px)"
+    --font-size="18px"
+    on:keydown="{({ detail }) => (keys[4] = detail)}"
   />
 </div>
 

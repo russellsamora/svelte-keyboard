@@ -10,7 +10,6 @@
   const dispatch = createEventDispatcher();
 
   export let custom;
-  export let style = "";
   export let layout = "standard";
   export let noSwap = [];
 
@@ -81,7 +80,7 @@
         <div class="row row--{i}">
           {#each keys as { value, display }}
             <button
-              class="{style} key--{value}"
+              class="key--{value}"
               class:single="{value.length === 1}"
               on:touchstart="{(e) => onKey(value, e)}"
               on:mousedown="{(e) => onKey(value, e)}"
@@ -112,7 +111,6 @@
     line-height: 1;
     flex: 1;
     transform-origin: 50% 50%;
-    height: var(--height, 3.5rem);
     background: var(--background, #efefef);
     color: var(--color, currentColor);
     border: var(--border, none);
@@ -120,6 +118,7 @@
     box-shadow: var(--box-shadow, none);
     font-family: var(--font-family, sans-serif);
     font-size: var(--font-size, 1rem);
+    height: var(--height, 3.5rem);
     margin: var(--margin, 0.125rem);
     text-transform: var(--text-transform, none);
   }
@@ -128,49 +127,12 @@
     min-width: var(--min-width, 2rem);
   }
 
-  button.depth {
-    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.25);
-    margin: 0.2rem;
-  }
-
-  button.outline {
-    border: 1px solid rgba(0, 0, 0, 0.25);
-  }
-
-  button:first-of-type {
-    transform-origin: 0 50%;
-  }
-
-  button:last-of-type {
-    transform-origin: 100% 50%;
-  }
-
-  .row:last-of-type button {
-    transform-origin: 50% 100%;
-  }
-
-  .row:last-of-type button:first-of-type {
-    transform-origin: 0% 100%;
-  }
-
-  .row:last-of-type button:last-of-type {
-    transform-origin: 100% 100%;
-  }
-
   button:active {
     background: var(--active-background, #cdcdcd);
     border: var(--active-border, none);
     box-shadow: var(--active-box-shadow, none);
     color: var(--active-color, currentColor);
     transform: var(--active-transform, scale(2));
-  }
-
-  .page {
-    display: none;
-  }
-
-  .page.visible {
-    display: block;
   }
 
   button.key--Space {
@@ -184,5 +146,13 @@
   button.key--Backspace,
   button.key--Enter {
     flex: var(--special-flex, 1.5);
+  }
+
+  .page {
+    display: none;
+  }
+
+  .page.visible {
+    display: block;
   }
 </style>

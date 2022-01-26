@@ -3,7 +3,6 @@
 /** @typedef {typeof __propDef.slots}  IndexSlots */
 export default class Index extends SvelteComponentTyped<{
     custom: any;
-    style?: string;
     layout?: string;
     noSwap?: any[];
 }, {
@@ -19,7 +18,6 @@ import { SvelteComponentTyped } from "svelte";
 declare const __propDef: {
     props: {
         custom: any;
-        style?: string;
         layout?: string;
         noSwap?: any[];
     };
