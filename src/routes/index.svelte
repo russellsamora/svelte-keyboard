@@ -6,7 +6,7 @@
 
 <h1>svelte-keyboard</h1>
 <p>
-  An on-screen keyboard component for Svelte. Read the docs on <a
+  An virtual keyboard component for Svelte. Read the docs on <a
     href="https://github.com/russellgoldenberg/svelte-keyboard">github.</a
   >
 </p>
