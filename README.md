@@ -87,4 +87,6 @@ cd example;
 npm run dev;
 ```
 
+open `localhost:4000/svelte-keyboard`.
+
 Note: Must manually change export package "."

@@ -24,7 +24,11 @@
   <p>key pressed: <strong>{keys[1] || ""}</strong></p>
 </div>
 <div>
-  <Keyboard layout="wordle" on:keydown="{({ detail }) => (keys[1] = detail)}" />
+  <Keyboard
+    layout="wordle"
+    on:keydown="{({ detail }) => (keys[1] = detail)}"
+    --text-transform="uppercase"
+  />
 </div>
 
 <div class="info">

@@ -1,81 +1,81 @@
 export default [{
 	"row": 0,
-	"value": "Q"
+	"value": "q"
 }, {
 	"row": 0,
-	"value": "W"
+	"value": "w"
 }, {
 	"row": 0,
-	"value": "E"
+	"value": "e"
 }, {
 	"row": 0,
-	"value": "R"
+	"value": "r"
 }, {
 	"row": 0,
-	"value": "T"
+	"value": "t"
 }, {
 	"row": 0,
-	"value": "Y"
+	"value": "y"
 }, {
 	"row": 0,
-	"value": "U"
+	"value": "u"
 }, {
 	"row": 0,
-	"value": "I"
+	"value": "i"
 }, {
 	"row": 0,
-	"value": "O"
+	"value": "o"
 }, {
 	"row": 0,
-	"value": "P"
+	"value": "p"
 }, {
 	"row": 1,
-	"value": "A"
+	"value": "a"
 }, {
 	"row": 1,
-	"value": "S"
+	"value": "s"
 }, {
 	"row": 1,
-	"value": "D"
+	"value": "d"
 }, {
 	"row": 1,
-	"value": "F"
+	"value": "f"
 }, {
 	"row": 1,
-	"value": "G"
+	"value": "g"
 }, {
 	"row": 1,
-	"value": "H"
+	"value": "h"
 }, {
 	"row": 1,
-	"value": "J"
+	"value": "j"
 }, {
 	"row": 1,
-	"value": "K"
+	"value": "k"
 }, {
 	"row": 1,
-	"value": "L"
+	"value": "l"
 }, {
 	"row": 2,
-	"value": "Z"
+	"value": "z"
 }, {
 	"row": 2,
-	"value": "X"
+	"value": "x"
 }, {
 	"row": 2,
-	"value": "C"
+	"value": "c"
 }, {
 	"row": 2,
-	"value": "V"
+	"value": "v"
 }, {
 	"row": 2,
-	"value": "B"
+	"value": "b"
 }, {
 	"row": 2,
-	"value": "N"
+	"value": "n"
 }, {
 	"row": 2,
-	"value": "M"
+	"value": "m"
 }, {
 	"row": 2,
 	"value": "Backspace"
