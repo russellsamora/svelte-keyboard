@@ -1,5 +1,5 @@
 <script>
-  import Keyboard from "$lib/index.svelte";
+  import Keyboard from "$lib/Keyboard.svelte";
 
   let keys = [];
 </script>
