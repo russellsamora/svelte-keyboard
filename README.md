@@ -20,7 +20,14 @@ A svelte component for when you want a permanent, on-screen keyboard. [Example](
 <Keyboard on:keydown="{onKeydown}" />
 ```
 
-### Custom Keys
+### Preset Layouts
+
+- `standard` - (_default_) two pages with all basic keys
+- `crossword` - one page, just capitalized letters and Backspace
+- `wordle` - one page, just capitalized letters, Backspace, and Enter
+
+
+### Custom Layout
 
 ```svelte
 <script>
@@ -32,11 +39,6 @@ A svelte component for when you want a permanent, on-screen keyboard. [Example](
 
 If you want value to be different than the display key, pass a `display` property. If you want keys to be laid out on the second page, include `page: 1` (defaults to `page: 0`) .
 
-### Layouts
-
-- `standard` - (_default_) two pages with all basic keys
-- `crossword` - one page, just capitalized letters and Backspace
-- `wordle` - one page, just capitalized letters, Backspace, and Enter
 
 ```svelte
 <Keyboard layout="wordle" />
@@ -65,7 +67,7 @@ Use style props on the component (showing defaults):
 	--active-box-shadow="none"
 	--active-color="currentColor"
 	--active-opacity="1"
-	--active-transform="scale(2)"
+	--active-transform="none"
 >
 ```
 
@@ -79,6 +81,11 @@ For any other properties, use global CSS on the selector `.svelte-keyboard butto
 - `Shift` displays "ABC" or "abc" to toggle case, no event fires
 - `Page1` displays "123" and will switch to the second page, no event fires
 - `Page0` displays "abc" and will switch to the first page, no event fires
+
+If you want to say the word instead of an icon, add this prop:
+```svelte
+<Keyboard noSwap={["Enter"]} />
+```
 
 ## Development
 
