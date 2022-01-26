@@ -1,6 +1,6 @@
 {
   "name": "svelte-keyboard",
-  "version": "0.3.7",
+  "version": "0.3.8",
   "description": "Keyboard component for Svelte",
   "repository": {
     "type": "git",
@@ -32,7 +32,6 @@
     "./layouts/crossword": "./layouts/crossword.js",
     "./layouts/standard": "./layouts/standard.js",
     "./layouts/wordle": "./layouts/wordle.js",
-    "./layouts": "./layouts.js",
     "./svg/backspace": "./svg/backspace.js",
     "./svg/enter": "./svg/enter.js",
     ".": "./Keyboard.svelte"
