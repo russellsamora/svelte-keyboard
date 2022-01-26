@@ -111,15 +111,17 @@
     line-height: 1;
     flex: 1;
     transform-origin: 50% 50%;
-    background: var(--background, #efefef);
-    color: var(--color, currentColor);
+    background: var(--background, #eee);
+    color: var(--color, #111);
     border: var(--border, none);
     border-radius: var(--border-radius, 2px);
     box-shadow: var(--box-shadow, none);
     font-family: var(--font-family, sans-serif);
     font-size: var(--font-size, 1rem);
+    font-weight: var(--font-size, normal);
     height: var(--height, 3.5rem);
     margin: var(--margin, 0.125rem);
+    opacity: var(--opacity, 1);
     text-transform: var(--text-transform, none);
   }
 
@@ -128,11 +130,12 @@
   }
 
   button:active {
-    background: var(--active-background, #cdcdcd);
+    background: var(--active-background, #ccc);
     border: var(--active-border, none);
     box-shadow: var(--active-box-shadow, none);
-    color: var(--active-color, currentColor);
-    transform: var(--active-transform, scale(2));
+    color: var(--active-color, #111);
+    opacity: var(--active-opacity, 1);
+    transform: var(--active-transform, none);
   }
 
   button.key--Space {

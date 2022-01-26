@@ -54,13 +54,16 @@ Use style props on the component (showing defaults):
 	--box-shadow="none"
 	--font-family="sans-serif"
 	--font-size="1rem"
+	--font-weight="normal"
 	--margin="0.125rem"
 	--min-width="2rem"
+	--opacity="1"
 	--text-transform="none"
 	--active-background="#cdcdcd"
 	--active-border="none"
 	--active-box-shadow="none"
 	--active-color="currentColor"
+	--active-opacity="1"
 	--active-transform="scale(2)"
 >
 ```
