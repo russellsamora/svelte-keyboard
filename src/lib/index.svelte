@@ -111,7 +111,6 @@
     line-height: 1;
     flex: 1;
     transform-origin: 50% 50%;
-    height: var(--height, 3.5rem);
     background: var(--background, #efefef);
     color: var(--color, currentColor);
     border: var(--border, none);
@@ -119,6 +118,7 @@
     box-shadow: var(--box-shadow, none);
     font-family: var(--font-family, sans-serif);
     font-size: var(--font-size, 1rem);
+    height: var(--height, 3.5rem);
     margin: var(--margin, 0.125rem);
     text-transform: var(--text-transform, none);
   }
