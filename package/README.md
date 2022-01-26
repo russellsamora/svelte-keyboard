@@ -12,7 +12,7 @@ A svelte component for when you want a permanent, on-screen keyboard. [Example](
 <script>
   import Keyboard from "svelte-keyboard";
 
-	const onKeydown = (event) => {
+  const onKeydown = (event) => {
     console.log(event.detail);
   }
 </script>
@@ -86,5 +86,7 @@ For any other properties, use global CSS on the selector `.svelte-keyboard butto
 cd example;
 npm run dev;
 ```
+
+open `localhost:4000/svelte-keyboard`.
 
 Note: Must manually change export package "."
