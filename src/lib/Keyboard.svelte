@@ -16,6 +16,7 @@
 
   let page = 0;
   let shifted = false;
+  let active;
 
   const alphabet = "abcdefghijklmnopqrstuvwxyz";
 
@@ -33,11 +34,11 @@
   $: rawData = custom || layouts[layout] || standard;
   $: data = rawData.map((d) => {
     let display = d.display;
-    if (swaps[d.value] && !noSwap.includes(d.value) && !d.noSwap)
-      display = swaps[d.value];
+    const s = swaps[d.value];
+    const shouldSwap = s && !noSwap.includes(d.value) && !d.noSwap;
+    if (shouldSwap) display = s;
     if (!display) display = shifted ? d.value.toUpperCase() : d.value;
-    if (d.value === "Shift")
-      display = shifted ? swaps[d.value] : swaps[d.value].toUpperCase();
+    if (d.value === "Shift") display = shifted ? s : s.toUpperCase();
     return {
       ...d,
       display,
@@ -57,8 +58,9 @@
   $: rowData1 = rows0.map((r) => page1.filter((k) => k.row === r));
   $: rowData = [rowData0, rowData1];
 
-  function onKey(value, event) {
+  const onKeyStart = (event, value) => {
     event.preventDefault();
+    active = value;
     if (value.includes("Page")) {
       page = +value.substr(-1);
     } else if (value === "Shift") {
@@ -68,9 +70,15 @@
       if (shifted && alphabet.includes(value)) output = value.toUpperCase();
       dispatch("keydown", output);
     }
-    event.stopPropagation();
+    event.stopPropogation();
     return false;
-  }
+  };
+
+  const onKeyEnd = (value) => {
+    setTimeout(() => {
+      if (value === active) active = undefined;
+    }, 50);
+  };
 </script>
 
 <div class="svelte-keyboard">
@@ -82,8 +90,11 @@
             <button
               class="key--{value}"
               class:single="{value.length === 1}"
-              on:touchstart="{(e) => onKey(value, e)}"
-              on:mousedown="{(e) => onKey(value, e)}"
+              class:active="{value === active}"
+              on:touchstart="{(e) => onKeyStart(e, value)}"
+              on:mousedown="{(e) => onKeyStart(e, value)}"
+              on:touchend="{() => onKeyEnd(value)}"
+              on:mouseup="{() => onKeyEnd(value)}"
             >
               {#if display.includes("<svg")}
                 {@html display}
@@ -104,12 +115,14 @@
   }
 
   button {
+    appearance: none;
     display: inline-block;
     text-align: center;
     vertical-align: baseline;
     cursor: pointer;
     line-height: 1;
     transform-origin: 50% 50%;
+    user-select: none;
     background: var(--background, #eee);
     color: var(--color, #111);
     border: var(--border, none);
@@ -123,12 +136,14 @@
     margin: var(--margin, 0.125rem);
     opacity: var(--opacity, 1);
     text-transform: var(--text-transform, none);
+    -webkit-tap-highlight-color: transparent;
   }
 
   button.single {
     min-width: var(--min-width, 2rem);
   }
 
+  button.active,
   button:active {
     background: var(--active-background, #ccc);
     border: var(--active-border, none);
