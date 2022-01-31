@@ -130,8 +130,8 @@
     box-shadow: var(--box-shadow, none);
     flex: var(--flex, 1);
     font-family: var(--font-family, sans-serif);
-    font-size: var(--font-size, 1rem);
-    font-weight: var(--font-size, normal);
+    font-size: var(--font-size, 20px);
+    font-weight: var(--font-weight, bold);
     height: var(--height, 3.5rem);
     margin: var(--margin, 0.125rem);
     opacity: var(--opacity, 1);
@@ -172,5 +172,9 @@
 
   .page.visible {
     display: block;
+  }
+
+  :global(.svelte-keyboard svg) {
+    stroke-width: var(--stroke-width, 3px);
   }
 </style>
