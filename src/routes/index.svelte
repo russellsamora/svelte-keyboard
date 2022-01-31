@@ -37,6 +37,7 @@
 </div>
 <div>
   <Keyboard
+    --flex="0 auto"
     custom="{[
       { row: 0, value: 's' },
       { row: 0, value: 'v' },
@@ -44,6 +45,14 @@
       { row: 0, value: 'l' },
       { row: 0, value: 't' },
       { row: 0, value: 'e' },
+      { row: 1, value: 'k' },
+      { row: 1, value: 'e' },
+      { row: 1, value: 'y' },
+      { row: 1, value: 'b' },
+      { row: 1, value: 'o' },
+      { row: 1, value: 'a' },
+      { row: 1, value: 'r' },
+      { row: 1, value: 'd' },
     ]}"
     on:keydown="{({ detail }) => (keys[2] = detail)}"
   />
@@ -59,7 +68,8 @@
     --color="white"
     --border-radius="16px"
     --font-family="monospace"
-    --font-weight="bold"
+    --font-weight="400"
+    --stroke-width="2px"
     --active-background="lightgreen"
     --active-color="black"
     on:keydown="{({ detail }) => (keys[3] = detail)}"
@@ -91,7 +101,7 @@
   div {
     margin: 0 auto;
     max-width: 30rem;
-    padding: 1rem;
+    padding: 1rem 0;
   }
 
   .info > * {
