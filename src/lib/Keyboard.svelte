@@ -70,7 +70,7 @@
       if (shifted && alphabet.includes(value)) output = value.toUpperCase();
       dispatch("keydown", output);
     }
-    event.stopPropogation();
+    event.stopPropagation();
     return false;
   };
 
