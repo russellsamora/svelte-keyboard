@@ -131,7 +131,7 @@
     flex: var(--flex, 1);
     font-family: var(--font-family, sans-serif);
     font-size: var(--font-size, 20px);
-    font-weight: var(--font-weight, bold);
+    font-weight: var(--font-weight, normal);
     height: var(--height, 3.5rem);
     margin: var(--margin, 0.125rem);
     opacity: var(--opacity, 1);

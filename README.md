@@ -57,7 +57,7 @@ Use style props on the component (showing defaults):
 	--flex="1"
 	--font-family="sans-serif"
 	--font-size="20px"
-	--font-weight="bold"
+	--font-weight="normal"
 	--margin="0.125rem"
 	--min-width="2rem"
 	--opacity="1"
