@@ -13,8 +13,6 @@
   export let noSwap = [];
   export let keyClass = {};
 
-  $: console.log(keyClass);
-
   // vars
   let page = 0;
   let shifted = false;
