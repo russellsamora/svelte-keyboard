@@ -7,19 +7,22 @@
   import backspaceSVG from "$lib/svg/backspace.js";
   import enterSVG from "$lib/svg/enter.js";
 
-  const layouts = { standard, crossword, wordle };
-  const dispatch = createEventDispatcher();
-
+  // exposed props
   export let custom;
   export let layout = "standard";
   export let noSwap = [];
+  export let keyClass = {};
 
+  $: console.log(keyClass);
+
+  // vars
   let page = 0;
   let shifted = false;
-  let active;
+  let active = undefined;
 
+  const layouts = { standard, crossword, wordle };
+  const dispatch = createEventDispatcher();
   const alphabet = "abcdefghijklmnopqrstuvwxyz";
-
   const swaps = {
     Page0: "abc",
     Page1: "?123",
@@ -29,8 +32,32 @@
     Backspace: backspaceSVG,
   };
 
+  // functions
   const unique = (arr) => [...new Set(arr)];
 
+  const onKeyStart = (event, value) => {
+    event.preventDefault();
+    active = value;
+    if (value.includes("Page")) {
+      page = +value.substr(-1);
+    } else if (value === "Shift") {
+      shifted = !shifted;
+    } else {
+      let output = value;
+      if (shifted && alphabet.includes(value)) output = value.toUpperCase();
+      dispatch("keydown", output);
+    }
+    event.stopPropagation();
+    return false;
+  };
+
+  const onKeyEnd = (value) => {
+    setTimeout(() => {
+      if (value === active) active = undefined;
+    }, 50);
+  };
+
+  // reactive vars
   $: rawData = custom || layouts[layout] || standard;
   $: data = rawData.map((d) => {
     let display = d.display;
@@ -57,28 +84,6 @@
   $: rowData0 = rows0.map((r) => page0.filter((k) => k.row === r));
   $: rowData1 = rows0.map((r) => page1.filter((k) => k.row === r));
   $: rowData = [rowData0, rowData1];
-
-  const onKeyStart = (event, value) => {
-    event.preventDefault();
-    active = value;
-    if (value.includes("Page")) {
-      page = +value.substr(-1);
-    } else if (value === "Shift") {
-      shifted = !shifted;
-    } else {
-      let output = value;
-      if (shifted && alphabet.includes(value)) output = value.toUpperCase();
-      dispatch("keydown", output);
-    }
-    event.stopPropagation();
-    return false;
-  };
-
-  const onKeyEnd = (value) => {
-    setTimeout(() => {
-      if (value === active) active = undefined;
-    }, 50);
-  };
 </script>
 
 <div class="svelte-keyboard">
@@ -88,7 +93,7 @@
         <div class="row row--{i}">
           {#each keys as { value, display }}
             <button
-              class="key--{value}"
+              class="key key--{value} {keyClass[value] || ''}"
               class:single="{value.length === 1}"
               class:active="{value === active}"
               on:touchstart="{(e) => onKeyStart(e, value)}"

@@ -2,6 +2,7 @@
   import Keyboard from "$lib/Keyboard.svelte";
 
   let keys = [];
+  const keyClass = {};
 </script>
 
 <h1>svelte-keyboard</h1>
@@ -94,6 +95,20 @@
   />
 </div>
 
+<div class="info">
+  <h3>Custom Key Class</h3>
+  <p>key pressed: <strong>{keys[5] || ""}</strong></p>
+</div>
+<div>
+  <Keyboard
+    keyClass="{keyClass}"
+    on:keydown="{({ detail }) => {
+      keys[5] = detail;
+      keyClass[detail] = 'clicked';
+    }}"
+  />
+</div>
+
 <style>
   h1,
   h3,
@@ -106,5 +121,9 @@
 
   .info > * {
     padding: 0;
+  }
+
+  :global(.key.clicked) {
+    --background: pink;
   }
 </style>
