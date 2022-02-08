@@ -5,6 +5,7 @@ export default class Keyboard extends SvelteComponentTyped<{
     custom: any;
     layout?: string;
     noSwap?: any[];
+    keyClass?: {};
 }, {
     keydown: CustomEvent<any>;
 } & {
@@ -20,6 +21,7 @@ declare const __propDef: {
         custom: any;
         layout?: string;
         noSwap?: any[];
+        keyClass?: {};
     };
     events: {
         keydown: CustomEvent<any>;

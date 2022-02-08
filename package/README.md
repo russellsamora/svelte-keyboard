@@ -74,6 +74,12 @@ Use style props on the component (showing defaults):
 
 For any other properties, use global CSS on the selector `.svelte-keyboard button.key`. Note: `stroke-width` is for svg icons.
 
+To give specific keys a class (e.g., "clicked") you can use the `keyClass` prop:
+```svelte
+<Keyboard keyClass="{{ "x": "clicked"}}" />
+```
+The `keyClass` object is key/value pairs where they key is the key name (e.g., "x" or "Enter") and the value is the class name(s) to apply (e.g., "clicked" or "clicked hide"). You can then use global styling `:global(.key.clicked) { ... }` to apply custom styles.
+
 ### Special values
 
 - `Backspace` displays a backspace svg icon
