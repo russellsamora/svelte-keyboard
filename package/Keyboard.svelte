@@ -1,14 +1,20 @@
 <script>
   import { createEventDispatcher } from "svelte";
 
-  import standard from "./layouts/standard.js";
-  import crossword from "./layouts/crossword.js";
-  import wordle from "./layouts/wordle.js";
+  import qwertyStandard from "./layouts/qwerty/standard.js";
+  import qwertyCrossword from "./layouts/qwerty/crossword.js";
+  import qwertyWordle from "./layouts/qwerty/wordle.js";
+
+  import azertyStandard from "./layouts/azerty/standard.js";
+  import azertyCrossword from "./layouts/azerty/crossword.js";
+  import azertyWordle from "./layouts/azerty/wordle.js";
+
   import backspaceSVG from "./svg/backspace.js";
   import enterSVG from "./svg/enter.js";
 
   // exposed props
   export let custom;
+  export let localizationLayout = "qwerty";
   export let layout = "standard";
   export let noSwap = [];
   export let keyClass = {};
@@ -18,7 +24,18 @@
   let shifted = false;
   let active = undefined;
 
-  const layouts = { standard, crossword, wordle };
+  const layouts = {
+    qwerty: {
+      standard: qwertyStandard,
+      crossword: qwertyCrossword,
+      wordle: qwertyWordle,
+    },
+    azerty: {
+      standard: azertyStandard,
+      crossword: azertyCrossword,
+      wordle: azertyWordle,
+    },
+  };
   const dispatch = createEventDispatcher();
   const alphabet = "abcdefghijklmnopqrstuvwxyz";
   const swaps = {
@@ -56,7 +73,7 @@
   };
 
   // reactive vars
-  $: rawData = custom || layouts[layout] || standard;
+  $: rawData = custom || layouts[localizationLayout][layout] || standard;
   $: data = rawData.map((d) => {
     let display = d.display;
     const s = swaps[d.value];
@@ -178,6 +195,6 @@
   }
 
   :global(.svelte-keyboard svg) {
-    stroke-width: var(--stroke-width, 3px);
+    stroke-width: var(--stroke-width, 2px);
   }
 </style>

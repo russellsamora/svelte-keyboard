@@ -20,6 +20,11 @@ A svelte component for when you want a permanent, on-screen keyboard. [View Demo
 <Keyboard on:keydown="{onKeydown}" />
 ```
 
+### Localization Layouts
+
+- `qwerty` - (_default_)
+- `azerty`
+
 ### Preset Layouts
 
 - `standard` - (_default_) two pages with all basic keys

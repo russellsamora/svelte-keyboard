@@ -3,6 +3,7 @@
 /** @typedef {typeof __propDef.slots}  KeyboardSlots */
 export default class Keyboard extends SvelteComponentTyped<{
     custom: any;
+    localizationLayout?: string;
     layout?: string;
     noSwap?: any[];
     keyClass?: {};
@@ -19,6 +20,7 @@ import { SvelteComponentTyped } from "svelte";
 declare const __propDef: {
     props: {
         custom: any;
+        localizationLayout?: string;
         layout?: string;
         noSwap?: any[];
         keyClass?: {};
