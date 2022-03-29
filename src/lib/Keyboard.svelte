@@ -24,9 +24,17 @@
   let shifted = false;
   let active = undefined;
 
-  const layouts = { 
-    qwerty: { standard: qwertyStandard, crossword: qwertyCrossword, wordle: qwertyWordle },
-    azerty: { standard: azertyStandard, crossword: azertyCrossword, wordle: azertyWordle },
+  const layouts = {
+    qwerty: {
+      standard: qwertyStandard,
+      crossword: qwertyCrossword,
+      wordle: qwertyWordle,
+    },
+    azerty: {
+      standard: azertyStandard,
+      crossword: azertyCrossword,
+      wordle: azertyWordle,
+    },
   };
   const dispatch = createEventDispatcher();
   const alphabet = "abcdefghijklmnopqrstuvwxyz";
@@ -187,6 +195,6 @@
   }
 
   :global(.svelte-keyboard svg) {
-    stroke-width: var(--stroke-width, 3px);
+    stroke-width: var(--stroke-width, 2px);
   }
 </style>
