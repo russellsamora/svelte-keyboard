@@ -13,7 +13,7 @@
 </p>
 
 <div class="info">
-  <h3>Default</h3>
+  <h3>Default (Qwerty)</h3>
   <p>key pressed: <strong>{keys[0] || ""}</strong></p>
 </div>
 <div>
@@ -21,20 +21,66 @@
 </div>
 
 <div class="info">
-  <h3>Preset Layout (Wordle)</h3>
+  <h3>Default (Azerty)</h3>
   <p>key pressed: <strong>{keys[1] || ""}</strong></p>
+</div>
+<div>
+  <Keyboard localizationLayout="azerty" on:keydown="{({ detail }) => (keys[1] = detail)}" />
+</div>
+
+<div class="info">
+  <h3>Preset Layout (Wordle - Qwerty)</h3>
+  <p>key pressed: <strong>{keys[2] || ""}</strong></p>
 </div>
 <div>
   <Keyboard
     layout="wordle"
-    on:keydown="{({ detail }) => (keys[1] = detail)}"
+    on:keydown="{({ detail }) => (keys[2] = detail)}"
+    --text-transform="uppercase"
+  />
+</div>
+
+<div class="info">
+  <h3>Preset Layout (Wordle - Azerty)</h3>
+  <p>key pressed: <strong>{keys[3] || ""}</strong></p>
+</div>
+<div>
+  <Keyboard
+    layout="wordle"
+    localizationLayout="azerty"
+    on:keydown="{({ detail }) => (keys[3] = detail)}"
+    --text-transform="uppercase"
+  />
+</div>
+
+<div class="info">
+  <h3>Preset Layout (Crossword - Qwerty)</h3>
+  <p>key pressed: <strong>{keys[4] || ""}</strong></p>
+</div>
+<div>
+  <Keyboard
+    layout="crossword"
+    on:keydown="{({ detail }) => (keys[4] = detail)}"
+    --text-transform="uppercase"
+  />
+</div>
+
+<div class="info">
+  <h3>Preset Layout (Crossword - Azerty)</h3>
+  <p>key pressed: <strong>{keys[5] || ""}</strong></p>
+</div>
+<div>
+  <Keyboard
+    layout="crossword"
+    localizationLayout="azerty"
+    on:keydown="{({ detail }) => (keys[5] = detail)}"
     --text-transform="uppercase"
   />
 </div>
 
 <div class="info">
   <h3>Custom Layout</h3>
-  <p>key pressed: <strong>{keys[2] || ""}</strong></p>
+  <p>key pressed: <strong>{keys[6] || ""}</strong></p>
 </div>
 <div>
   <Keyboard
@@ -55,13 +101,13 @@
       { row: 1, value: 'r' },
       { row: 1, value: 'd' },
     ]}"
-    on:keydown="{({ detail }) => (keys[2] = detail)}"
+    on:keydown="{({ detail }) => (keys[6] = detail)}"
   />
 </div>
 
 <div class="info">
   <h3>Custom Style - A</h3>
-  <p>key pressed: <strong>{keys[3] || ""}</strong></p>
+  <p>key pressed: <strong>{keys[7] || ""}</strong></p>
 </div>
 <div>
   <Keyboard
@@ -73,13 +119,13 @@
     --stroke-width="2px"
     --active-background="lightgreen"
     --active-color="black"
-    on:keydown="{({ detail }) => (keys[3] = detail)}"
+    on:keydown="{({ detail }) => (keys[7] = detail)}"
   />
 </div>
 
 <div class="info">
   <h3>Custom Style - B</h3>
-  <p>key pressed: <strong>{keys[4] || ""}</strong></p>
+  <p>key pressed: <strong>{keys[8] || ""}</strong></p>
 </div>
 <div>
   <Keyboard
@@ -91,19 +137,19 @@
     --active-color="darkred"
     --active-transform="translate(2px, 2px)"
     --font-size="18px"
-    on:keydown="{({ detail }) => (keys[4] = detail)}"
+    on:keydown="{({ detail }) => (keys[8] = detail)}"
   />
 </div>
 
 <div class="info">
   <h3>Custom Key Class</h3>
-  <p>key pressed: <strong>{keys[5] || ""}</strong></p>
+  <p>key pressed: <strong>{keys[9] || ""}</strong></p>
 </div>
 <div>
   <Keyboard
     keyClass="{keyClass}"
     on:keydown="{({ detail }) => {
-      keys[5] = detail;
+      keys[9] = detail;
       keyClass[detail] = 'clicked';
     }}"
   />
