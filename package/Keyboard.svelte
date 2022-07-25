@@ -196,5 +196,6 @@
 
   :global(.svelte-keyboard svg) {
     stroke-width: var(--stroke-width, 2px);
+		vertical-align: middle;
   }
 </style>
