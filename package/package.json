@@ -40,5 +40,6 @@
     ".": "./Keyboard.svelte"
   },
   "type": "module",
-  "svelte": "./Keyboard.svelte"
+  "svelte": "./Keyboard.svelte",
+  "typings": "./Keyboard.svelte.d.ts"
 }
