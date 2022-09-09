@@ -34,5 +34,6 @@
 	"exports": {
 		".": "./Keyboard.svelte"
 	},
-	"type": "module"
+	"type": "module",
+	"typings": "./Keyboard.svelte.d.ts"
 }
