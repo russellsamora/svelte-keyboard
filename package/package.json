@@ -1,6 +1,6 @@
 {
   "name": "svelte-keyboard",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "Keyboard component for Svelte",
   "repository": {
     "type": "git",
@@ -40,6 +40,5 @@
     ".": "./Keyboard.svelte"
   },
   "type": "module",
-  "svelte": "./Keyboard.svelte",
-  "typings": "./Keyboard.svelte.d.ts"
+  "svelte": "./Keyboard.svelte"
 }
