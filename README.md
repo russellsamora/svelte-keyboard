@@ -101,11 +101,8 @@ If you want to say the word instead of an icon, add this prop:
 
 ## Development
 
+change basepath to "" for dev and "svelte-keyboard" for deploy.
+
 ```
-cd example;
 npm run dev;
 ```
-
-open `localhost:4000/svelte-keyboard`.
-
-Note: Must manually change export package "."
