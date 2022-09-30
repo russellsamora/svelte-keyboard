@@ -108,6 +108,7 @@
         <div class="row row--{i}">
           {#each keys as { value, display }}
             <button
+              type="button"
               class="key key--{value} {keyClass[value] || ''}"
               class:single="{value.length === 1}"
               class:active="{value === active}"
@@ -196,6 +197,6 @@
 
   :global(.svelte-keyboard svg) {
     stroke-width: var(--stroke-width, 2px);
-		vertical-align: middle;
+    vertical-align: middle;
   }
 </style>
