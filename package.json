@@ -4,18 +4,18 @@
 	"description": "Keyboard component for Svelte",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/russellgoldenberg/svelte-keyboard.git"
+		"url": "git+https://github.com/russellsamora/svelte-keyboard.git"
 	},
 	"keywords": [
 		"svelte",
 		"keyboard"
 	],
-	"author": "russell goldenberg",
+	"author": "russell samora",
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/russellgoldenberg/svelte-keyboard/issues"
+		"url": "https://github.com/russellsamora/svelte-keyboard/issues"
 	},
-	"homepage": "https://github.com/russellgoldenberg/svelte-keyboard#readme",
+	"homepage": "https://github.com/russellsamora/svelte-keyboard#readme",
 	"scripts": {
 		"dev": "svelte-kit dev --host",
 		"build": "svelte-kit build",

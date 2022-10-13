@@ -1,45 +1,45 @@
 {
-  "name": "svelte-keyboard",
-  "version": "0.5.5",
-  "description": "Keyboard component for Svelte",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/russellgoldenberg/svelte-keyboard.git"
-  },
-  "keywords": [
-    "svelte",
-    "keyboard"
-  ],
-  "author": "russell goldenberg",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/russellgoldenberg/svelte-keyboard/issues"
-  },
-  "homepage": "https://github.com/russellgoldenberg/svelte-keyboard#readme",
-  "devDependencies": {
-    "@sveltejs/adapter-static": "next",
-    "@sveltejs/kit": "next",
-    "prettier": "^2.4.1",
-    "prettier-plugin-svelte": "^2.4.0",
-    "svelte": "^3.46.2",
-    "svelte2tsx": "^0.4.14",
-    "typescript": "^4.5.5"
-  },
-  "exports": {
-    "./package.json": "./package.json",
-    "./.DS_Store": "./.DS_Store",
-    "./Keyboard.svelte": "./Keyboard.svelte",
-    "./layouts/azerty/crossword": "./layouts/azerty/crossword.js",
-    "./layouts/azerty/standard": "./layouts/azerty/standard.js",
-    "./layouts/azerty/wordle": "./layouts/azerty/wordle.js",
-    "./layouts/qwerty/crossword": "./layouts/qwerty/crossword.js",
-    "./layouts/qwerty/standard": "./layouts/qwerty/standard.js",
-    "./layouts/qwerty/wordle": "./layouts/qwerty/wordle.js",
-    "./svg/backspace": "./svg/backspace.js",
-    "./svg/enter": "./svg/enter.js",
-    ".": "./Keyboard.svelte"
-  },
-  "type": "module",
-  "typings": "./Keyboard.svelte.d.ts",
-  "svelte": "./Keyboard.svelte"
+	"name": "svelte-keyboard",
+	"version": "0.5.5",
+	"description": "Keyboard component for Svelte",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/russellsamora/svelte-keyboard.git"
+	},
+	"keywords": [
+		"svelte",
+		"keyboard"
+	],
+	"author": "russell samora",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/russellsamora/svelte-keyboard/issues"
+	},
+	"homepage": "https://github.com/russellsamora/svelte-keyboard#readme",
+	"devDependencies": {
+		"@sveltejs/adapter-static": "next",
+		"@sveltejs/kit": "next",
+		"prettier": "^2.4.1",
+		"prettier-plugin-svelte": "^2.4.0",
+		"svelte": "^3.46.2",
+		"svelte2tsx": "^0.4.14",
+		"typescript": "^4.5.5"
+	},
+	"exports": {
+		"./package.json": "./package.json",
+		"./.DS_Store": "./.DS_Store",
+		"./Keyboard.svelte": "./Keyboard.svelte",
+		"./layouts/azerty/crossword": "./layouts/azerty/crossword.js",
+		"./layouts/azerty/standard": "./layouts/azerty/standard.js",
+		"./layouts/azerty/wordle": "./layouts/azerty/wordle.js",
+		"./layouts/qwerty/crossword": "./layouts/qwerty/crossword.js",
+		"./layouts/qwerty/standard": "./layouts/qwerty/standard.js",
+		"./layouts/qwerty/wordle": "./layouts/qwerty/wordle.js",
+		"./svg/backspace": "./svg/backspace.js",
+		"./svg/enter": "./svg/enter.js",
+		".": "./Keyboard.svelte"
+	},
+	"type": "module",
+	"typings": "./Keyboard.svelte.d.ts",
+	"svelte": "./Keyboard.svelte"
 }

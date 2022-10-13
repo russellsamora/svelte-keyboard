@@ -8,7 +8,7 @@
 <h1>svelte-keyboard</h1>
 <p>
   A virtual keyboard component for Svelte. Read the docs on <a
-    href="https://github.com/russellgoldenberg/svelte-keyboard">github.</a
+    href="https://github.com/russellsamora/svelte-keyboard">github.</a
   >
 </p>
 
@@ -25,7 +25,10 @@
   <p>key pressed: <strong>{keys[1] || ""}</strong></p>
 </div>
 <div>
-  <Keyboard localizationLayout="azerty" on:keydown="{({ detail }) => (keys[1] = detail)}" />
+  <Keyboard
+    localizationLayout="azerty"
+    on:keydown="{({ detail }) => (keys[1] = detail)}"
+  />
 </div>
 
 <div class="info">
